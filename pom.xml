@@ -18,6 +18,7 @@
     </properties>
     <modules>
         <module>mantis-dependencies-bom</module>
+        <module>mantis-core</module>
     </modules>
 
     <dependencyManagement>

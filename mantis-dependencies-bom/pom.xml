@@ -26,10 +26,18 @@
         <consulApiVersion>1.4.2</consulApiVersion>
         <bytebuddyVersion>1.14.4</bytebuddyVersion>
         <sptingBootVersion>3.0.9</sptingBootVersion>
+        <commonsLang3>3.13.0</commonsLang3>
     </properties>
 
     <dependencyManagement>
         <dependencies>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${commonsLang3}</version>
+            </dependency>
+
             <!--日志-->
             <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
             <dependency>
