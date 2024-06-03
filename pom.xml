@@ -17,12 +17,26 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
     <modules>
-        <!--
-        <module>u002-hashed-wheel-timer</module>
-        <module>u002-time-limiter</module>
-        <module>u002-timeago</module>
-        <module>u002-zk-schedule</module>
-        <module>u002-zeebe</module>
-        -->
+        <module>mantis-dependencies-bom</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>com.u002</groupId>
+                <artifactId>mantis-dependencies-bom</artifactId>
+                <version>0.0.1</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
 </project>
