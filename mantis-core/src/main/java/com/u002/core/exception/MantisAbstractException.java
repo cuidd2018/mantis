@@ -1,44 +1,45 @@
 package com.u002.core.exception;
 
-
 import com.u002.core.rpc.RpcContext;
 
 /**
- * @author maijunsheng
- * @version 创建时间：2013-5-30
+ * 运行时异常
+ *
+ * @author amber
+ * @version 创建时间：
  */
 public abstract class MantisAbstractException extends RuntimeException {
     private static final long serialVersionUID = -8742311167276890503L;
 
-    protected MantisErrorMsg motanErrorMsg = MantisErrorMsgConstant.FRAMEWORK_DEFAULT_ERROR;
+    protected MantisErrorMsg mantisErrorMsg = MantisErrorMsgConstant.FRAMEWORK_DEFAULT_ERROR;
     protected String errorMsg = null;
 
     public MantisAbstractException() {
         super();
     }
 
-    public MantisAbstractException(MantisErrorMsg motanErrorMsg) {
+    public MantisAbstractException(MantisErrorMsg mantisErrorMsg) {
         super();
-        this.motanErrorMsg = motanErrorMsg;
+        this.mantisErrorMsg = mantisErrorMsg;
     }
 
     public MantisAbstractException(String message) {
         this(message, (MantisErrorMsg) null);
     }
 
-    public MantisAbstractException(String message, MantisErrorMsg motanErrorMsg) {
+    public MantisAbstractException(String message, MantisErrorMsg mantisErrorMsg) {
         super(message);
-        this.motanErrorMsg = motanErrorMsg;
+        this.mantisErrorMsg = mantisErrorMsg;
         this.errorMsg = message;
     }
 
-    public MantisAbstractException(String message, MantisErrorMsg motanErrorMsg, boolean writableStackTrace) {
-        this(message, null, motanErrorMsg, writableStackTrace);
+    public MantisAbstractException(String message, MantisErrorMsg mantisErrorMsg, boolean writableStackTrace) {
+        this(message, null, mantisErrorMsg, writableStackTrace);
     }
 
-    public MantisAbstractException(String message, Throwable cause, MantisErrorMsg motanErrorMsg, boolean writableStackTrace) {
+    public MantisAbstractException(String message, Throwable cause, MantisErrorMsg mantisErrorMsg, boolean writableStackTrace) {
         super(message, cause, false, writableStackTrace);
-        this.motanErrorMsg = motanErrorMsg;
+        this.mantisErrorMsg = mantisErrorMsg;
         this.errorMsg = message;
     }
 
@@ -46,9 +47,9 @@ public abstract class MantisAbstractException extends RuntimeException {
         this(message, cause, null);
     }
 
-    public MantisAbstractException(String message, Throwable cause, MantisErrorMsg motanErrorMsg) {
+    public MantisAbstractException(String message, Throwable cause, MantisErrorMsg mantisErrorMsg) {
         super(message, cause);
-        this.motanErrorMsg = motanErrorMsg;
+        this.mantisErrorMsg = mantisErrorMsg;
         this.errorMsg = message;
     }
 
@@ -56,20 +57,20 @@ public abstract class MantisAbstractException extends RuntimeException {
         super(cause);
     }
 
-    public MantisAbstractException(Throwable cause, MantisErrorMsg motanErrorMsg) {
+    public MantisAbstractException(Throwable cause, MantisErrorMsg mantisErrorMsg) {
         super(cause);
-        this.motanErrorMsg = motanErrorMsg;
+        this.mantisErrorMsg = mantisErrorMsg;
     }
 
     @Override
     public String getMessage() {
         String message = getOriginMessage();
-        return "error_message: " + message + ", status: " + motanErrorMsg.getStatus() + ", error_code: " + motanErrorMsg.getErrorCode()
+        return "error_message: " + message + ", status: " + mantisErrorMsg.getStatus() + ", error_code: " + mantisErrorMsg.getErrorCode()
                 + ",r=" + RpcContext.getContext().getRequestId();
     }
 
     public String getOriginMessage() {
-        if (motanErrorMsg == null) {
+        if (mantisErrorMsg == null) {
             return super.getMessage();
         }
 
@@ -78,20 +79,20 @@ public abstract class MantisAbstractException extends RuntimeException {
         if (errorMsg != null && !"".equals(errorMsg)) {
             message = errorMsg;
         } else {
-            message = motanErrorMsg.getMessage();
+            message = mantisErrorMsg.getMessage();
         }
         return message;
     }
 
     public int getStatus() {
-        return motanErrorMsg != null ? motanErrorMsg.getStatus() : 0;
+        return mantisErrorMsg != null ? mantisErrorMsg.getStatus() : 0;
     }
 
     public int getErrorCode() {
-        return motanErrorMsg != null ? motanErrorMsg.getErrorCode() : 0;
+        return mantisErrorMsg != null ? mantisErrorMsg.getErrorCode() : 0;
     }
 
-    public MantisErrorMsg getMotanErrorMsg() {
-        return motanErrorMsg;
+    public MantisErrorMsg getmantisErrorMsg() {
+        return mantisErrorMsg;
     }
 }

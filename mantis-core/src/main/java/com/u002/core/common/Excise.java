@@ -12,7 +12,7 @@ package com.u002.core.common;
 public enum Excise {
     excise_static("static"), excise_dynamic("dynamic"), excise_ratio("ratio");
 
-    private String name;
+    private final String name;
 
     Excise(String n) {
         this.name = n;
