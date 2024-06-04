@@ -7,7 +7,6 @@ import com.u002.core.log.LogService;
 /**
  * 
  * @author amber
- * @author zhanglei
  * 
  */
 public class LoggerUtil {
