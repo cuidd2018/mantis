@@ -6,7 +6,7 @@ import com.u002.core.log.LogService;
 
 /**
  * 
- * @author maijunsheng
+ * @author amber
  * @author zhanglei
  * 
  */

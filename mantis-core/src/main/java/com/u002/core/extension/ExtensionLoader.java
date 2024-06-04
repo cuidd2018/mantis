@@ -23,7 +23,7 @@ import java.util.concurrent.ConcurrentMap;
  * 		支持 weibo:spi 配置
  * </pre>
  *
- * @author maijunsheng
+ * @author amber
  * @version 创建时间：2013-5-28
  */
 public class ExtensionLoader<T> {

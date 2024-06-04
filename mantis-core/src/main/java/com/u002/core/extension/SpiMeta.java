@@ -3,7 +3,7 @@ package com.u002.core.extension;
 import java.lang.annotation.*;
 
 /**
- * @author maijunsheng
+ * @author amber
  * @version 创建时间：2013-5-28
  * 
  */

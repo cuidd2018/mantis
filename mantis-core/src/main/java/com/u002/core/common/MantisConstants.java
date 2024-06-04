@@ -1,7 +1,5 @@
 package com.u002.core.common;
 
-
-
 import com.u002.core.util.ReflectUtil;
 import java.util.regex.Pattern;
 

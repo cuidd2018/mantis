@@ -1,5 +1,3 @@
-
-
 package com.u002.core.util;
 
 import java.lang.reflect.Array;
@@ -13,7 +11,7 @@ import java.util.concurrent.ConcurrentMap;
 /**
  * 反射相关的辅助类
  *
- * @author maijunsheng
+ * @author amber
  * @version 创建时间：2013-5-23
  *
  */

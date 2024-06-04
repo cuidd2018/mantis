@@ -8,7 +8,7 @@ import java.util.Map;
 /**
  * rpc session context
  *
- * @author maijunsheng
+ * @author amber
  */
 public class RpcContext {
     private static final ThreadLocal<RpcContext> LOCAL_CONTEXT = new ThreadLocal<RpcContext>() {

@@ -1,7 +1,7 @@
 package com.u002.core.exception;
 
 /**
- * @author maijunsheng
+ * @author amber
  * @version 创建时间：2013-5-30
  */
 public class MantisErrorMsgConstant {

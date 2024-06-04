@@ -3,7 +3,7 @@ package com.u002.core.exception;
 /**
  * wrapper client exception.
  *
- * @author maijunsheng
+ * @author amber
  */
 public class MantisFrameworkException extends MantisAbstractException {
     private static final long serialVersionUID = -1638857395789735293L;

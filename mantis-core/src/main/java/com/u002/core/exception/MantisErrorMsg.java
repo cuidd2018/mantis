@@ -3,7 +3,7 @@ package com.u002.core.exception;
 import java.io.Serializable;
 
 /**
- * @author maijunsheng
+ * @author amber
  * @version 创建时间：2013-5-30
  */
 public class MantisErrorMsg implements Serializable {
