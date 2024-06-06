@@ -5,7 +5,7 @@ import java.io.IOException;
 
 
 /**
- * @author			koko
+ * @author			amber
  * @date 			2017-08-08 14:25:43
  * @description 	序列化扩展点
  */
