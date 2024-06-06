@@ -27,15 +27,30 @@
         <bytebuddyVersion>1.14.4</bytebuddyVersion>
         <sptingBootVersion>3.0.9</sptingBootVersion>
         <commonsLang3>3.13.0</commonsLang3>
+        <junitVersion>4.13.2</junitVersion>
+        <springVersion>3.2.12.RELEASE</springVersion>
+        <collections4Version>4.0</collections4Version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commonsLang3}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-collections4</artifactId>
+                <version>${collections4Version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junitVersion}</version>
+                <scope>test</scope>
             </dependency>
 
             <!--日志-->
@@ -148,6 +163,21 @@
                 <groupId>com.ecwid.consul</groupId>
                 <artifactId>consul-client</artifactId>
                 <version>${consulApiVersion}</version>
+            </dependency>
+
+
+            <!-- spring-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${springVersion}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${springVersion}</version>
+                <scope>test</scope>
             </dependency>
 
         </dependencies>
