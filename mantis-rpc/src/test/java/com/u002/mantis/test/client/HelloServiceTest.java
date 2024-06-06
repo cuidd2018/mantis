@@ -1,8 +1,8 @@
 package com.u002.mantis.test.client;
 
 import com.u002.mantis.Client;
+import com.u002.mantis.RpcFuture;
 import com.u002.mantis.proxy.IAsyncObjectProxy;
-import com.u002.mantis.task.RpcFuture;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
