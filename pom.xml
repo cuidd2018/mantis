@@ -15,14 +15,14 @@
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <revision>0.0.1</revision>
+        <revision>0.0.2</revision>
     </properties>
     <modules>
         <module>mantis-dependencies-bom</module>
         <module>mantis-core</module>
-        <module>mantis-rpc</module>
         <module>mantis-transport</module>
         <module>mantis-proxy</module>
+        <module>mantis-rpc</module>
     </modules>
 
     <dependencyManagement>

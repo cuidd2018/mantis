@@ -1,4 +1,6 @@
-package com.u002.mantis.proxy;
+package com.u002.proxy.internal;
+
+import com.u002.basic.proxy.IProxy;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Proxy;
@@ -8,7 +10,7 @@ import java.lang.reflect.Proxy;
  * @date 			2017-08-09 09:17:50
  * @description 	默认代理实现JDK
  */
-public class InternalProxy implements IProxy{
+public class InternalProxy implements IProxy {
 
 	/**
 	 *

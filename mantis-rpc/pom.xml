@@ -91,6 +91,13 @@
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-core</artifactId>
         </dependency>
+
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-proxy-internal</artifactId>
+            <version>${revision}</version>
+        </dependency>
     </dependencies>
 
 </project>

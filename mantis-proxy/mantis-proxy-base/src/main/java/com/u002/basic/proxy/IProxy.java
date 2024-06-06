@@ -1,4 +1,4 @@
-package com.u002.mantis.proxy;
+package com.u002.basic.proxy;
 
 import java.lang.reflect.InvocationHandler;
 

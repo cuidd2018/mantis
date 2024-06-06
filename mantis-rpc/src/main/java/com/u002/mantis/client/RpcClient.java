@@ -1,13 +1,13 @@
 package com.u002.mantis.client;
 
 
+import com.u002.basic.proxy.IProxy;
 import com.u002.mantis.Client;
 import com.u002.mantis.proxy.IAsyncObjectProxy;
-import com.u002.mantis.proxy.IProxy;
-import com.u002.mantis.proxy.InternalProxy;
 import com.u002.mantis.proxy.ObjectProxyHandler;
 import com.u002.mantis.remote.ConnectManager;
 import com.u002.mantis.remote.RemoteCall;
+import com.u002.proxy.internal.InternalProxy;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
