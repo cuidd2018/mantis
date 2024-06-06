@@ -1,9 +1,9 @@
 package com.u002.mantis.remote;
 
+import com.u002.mantis.RpcFuture;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.exception.MantisException;
-import com.u002.mantis.task.RpcFuture;
-import com.u002.mantis.transport.Connection;
+import com.u002.basic.Connection;
 import org.apache.commons.lang3.StringUtils;
 
 public class DefaultTransfer implements Transfer {

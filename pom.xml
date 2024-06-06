@@ -24,6 +24,7 @@
         <module>mantis-proxy</module>
         <module>mantis-rpc</module>
         <module>mantis-serialize</module>
+        <module>mantis-common</module>
     </modules>
 
     <dependencyManagement>

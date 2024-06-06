@@ -1,13 +1,11 @@
-package com.u002.mantis.transport.internal;
+package com.u002.basic.proxy.transport.client;
 
-import com.u002.mantis.client.RpcClientHandler;
-import com.u002.mantis.client.RpcClientInitializer;
-import com.u002.mantis.transport.RemoterClient;
+
+import com.u002.basic.Connection;
+import com.u002.basic.client.RemoterClient;
+import com.u002.basic.serialize.Serializer;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import org.slf4j.Logger;
@@ -22,14 +20,24 @@ public class NettyClient implements RemoterClient {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(NettyClient.class);
 
+    private final Serializer serializer;
+
+    private final ChannelHandler channelHandler;
+
+
+    public NettyClient(Serializer serializer, ChannelHandler channelHandler) {
+        this.serializer = serializer;
+        this.channelHandler = channelHandler;
+    }
+
     @Override
     public void connect(InetSocketAddress serverAddress, Listener listener) {
         Bootstrap b = new Bootstrap();
         b.group(eventLoopGroup)
                 .channel(NioSocketChannel.class)
                 .option(ChannelOption.TCP_NODELAY, true)
-                .handler(new RpcClientInitializer());
-        connect(b, serverAddress,listener);
+                .handler(new RpcClientInitializer(serializer, channelHandler));
+        connect(b, serverAddress, listener);
     }
 
     @Override
@@ -56,8 +64,7 @@ public class NettyClient implements RemoterClient {
             public void operationComplete(final ChannelFuture future) throws Exception {
                 if (future.isSuccess()) {
                     LOGGER.info("Successfully connect to remote server. remote peer = " + remotePeer);
-                    RpcClientHandler handler = future.channel().pipeline().get(RpcClientHandler.class);
-                    listener.onSuccess(handler);
+                    listener.onSuccess((Connection) channelHandler);
                 } else {
                     LOGGER.error("Failed to connect.", future.cause());
                 }

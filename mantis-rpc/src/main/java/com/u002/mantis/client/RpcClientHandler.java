@@ -1,9 +1,9 @@
 package com.u002.mantis.client;
 
+import com.u002.basic.Connection;
+import com.u002.mantis.RpcFuture;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
-import com.u002.mantis.task.RpcFuture;
-import com.u002.mantis.transport.Connection;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelFutureListener;

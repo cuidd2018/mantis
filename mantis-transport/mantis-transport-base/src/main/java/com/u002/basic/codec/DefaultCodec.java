@@ -1,4 +1,4 @@
-package com.u002.mantis.transport.codec;
+package com.u002.basic.codec;
 
 import com.u002.basic.MessageCodec;
 import com.u002.basic.serialize.Serializer;

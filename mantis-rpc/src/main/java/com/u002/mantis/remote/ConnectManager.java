@@ -1,8 +1,10 @@
 package com.u002.mantis.remote;
 
-import com.u002.mantis.transport.Connection;
-import com.u002.mantis.transport.RemoterClient;
-import com.u002.mantis.transport.internal.NettyClient;
+import com.u002.basic.Connection;
+import com.u002.basic.client.RemoterClient;
+import com.u002.basic.proxy.transport.client.NettyClient;
+import com.u002.mantis.client.RpcClientHandler;
+import com.u002.serialize.protostuff.ProtostuffSerialization;
 import org.apache.commons.collections4.CollectionUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,7 +38,7 @@ public class ConnectManager {
     private final RemoterClient remoterClient;
 
     private ConnectManager() {
-        remoterClient=new NettyClient();
+        remoterClient=new NettyClient(new ProtostuffSerialization(), new RpcClientHandler());
     }
 
     public static ConnectManager getInstance() {

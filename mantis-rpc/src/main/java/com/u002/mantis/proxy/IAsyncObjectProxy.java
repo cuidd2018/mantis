@@ -1,6 +1,7 @@
 package com.u002.mantis.proxy;
 
-import com.u002.mantis.task.RpcFuture;
+
+import com.u002.mantis.RpcFuture;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.ExecutionException;

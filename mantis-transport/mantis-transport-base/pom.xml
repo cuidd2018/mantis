@@ -22,6 +22,18 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
         </dependency>
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-serialize-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

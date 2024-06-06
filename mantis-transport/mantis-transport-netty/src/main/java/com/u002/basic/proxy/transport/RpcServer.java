@@ -36,9 +36,6 @@ public class RpcServer implements Server {
         this.startServer();
     }
 
-
-
-
     private void startServer() throws Exception {
         ServerBootstrap bootstrap = new ServerBootstrap();
         bootstrap.group(bossGroup, workerGroup)

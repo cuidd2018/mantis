@@ -1,7 +1,5 @@
-package com.u002.mantis.task;
+package com.u002.mantis;
 
-import com.u002.mantis.RpcRequest;
-import com.u002.mantis.RpcResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

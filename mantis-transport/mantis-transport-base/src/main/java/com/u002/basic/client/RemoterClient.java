@@ -1,4 +1,6 @@
-package com.u002.mantis.transport;
+package com.u002.basic.client;
+
+import com.u002.basic.Connection;
 
 import java.net.InetSocketAddress;
 

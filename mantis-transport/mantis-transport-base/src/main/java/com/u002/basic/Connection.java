@@ -1,7 +1,8 @@
-package com.u002.mantis.transport;
+package com.u002.basic;
 
+import com.u002.mantis.RpcFuture;
 import com.u002.mantis.RpcRequest;
-import com.u002.mantis.task.RpcFuture;
+
 
 import java.net.SocketAddress;
 
