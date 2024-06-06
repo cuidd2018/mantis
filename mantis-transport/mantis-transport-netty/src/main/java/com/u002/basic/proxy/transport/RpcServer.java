@@ -1,7 +1,8 @@
-package com.u002.mantis.transport.internal;
+package com.u002.basic.proxy.transport;
 
-import com.u002.mantis.MessageCodec;
-import com.u002.mantis.transport.Server;
+
+import com.u002.basic.MessageCodec;
+import com.u002.basic.Server;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -12,7 +13,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.util.concurrent.TimeUnit;
 
-public class RpcServer  implements Server {
+public class RpcServer implements Server {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcServer.class);
 

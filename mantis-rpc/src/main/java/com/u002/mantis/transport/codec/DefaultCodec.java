@@ -1,7 +1,7 @@
 package com.u002.mantis.transport.codec;
 
+import com.u002.basic.MessageCodec;
 import com.u002.basic.serialize.Serializer;
-import com.u002.mantis.MessageCodec;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
 import io.netty.channel.ChannelHandler;

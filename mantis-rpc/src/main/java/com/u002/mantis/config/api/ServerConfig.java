@@ -1,11 +1,11 @@
 package com.u002.mantis.config.api;
 
+import com.u002.basic.Server;
+import com.u002.basic.proxy.transport.RpcServer;
 import com.u002.mantis.provider.Processor;
 import com.u002.mantis.provider.internal.ServiceProcessor;
-import com.u002.mantis.transport.Server;
 import com.u002.mantis.transport.codec.DefaultCodec;
 import com.u002.mantis.transport.internal.DefaultRpcHandler;
-import com.u002.mantis.transport.internal.RpcServer;
 import com.u002.serialize.protostuff.ProtostuffSerialization;
 
 public class ServerConfig extends AbstractInterfaceConfig {

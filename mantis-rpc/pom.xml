@@ -89,6 +89,12 @@
             <artifactId>mantis-serialize-protostuff</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-transport-netty</artifactId>
+            <version>${project.version}</version>
+        </dependency>
     </dependencies>
 
 </project>

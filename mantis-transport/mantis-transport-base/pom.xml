@@ -5,21 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.u002</groupId>
-        <artifactId>mantis</artifactId>
+        <artifactId>mantis-transport</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mantis-transport</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>mantis-transport-netty</module>
-        <module>mantis-transport-base</module>
-    </modules>
+    <artifactId>mantis-transport-base</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.netty</groupId>
+            <artifactId>netty-all</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
