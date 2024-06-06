@@ -22,6 +22,7 @@
         <module>mantis-core</module>
         <module>mantis-rpc</module>
         <module>mantis-transport</module>
+        <module>mantis-proxy</module>
     </modules>
 
     <dependencyManagement>
