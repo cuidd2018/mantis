@@ -1,1 +1,1 @@
-http\://www.u002.com/schema/mantis=com.u002.mantis.config.spring.schema.EasyRpcNamespaceHandler
+http\://www.u002.com/schema/mantis=com.u002.mantis.config.spring.schema.MantisRpcNamespaceHandler
