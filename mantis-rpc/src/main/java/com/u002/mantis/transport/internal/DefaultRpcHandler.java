@@ -14,16 +14,16 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
-public class RpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
+public class DefaultRpcHandler extends SimpleChannelInboundHandler<RpcRequest> {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(RpcHandler.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(DefaultRpcHandler.class);
 
     private final ThreadPoolExecutor executor = new ThreadPoolExecutor(16, 16, 600L, TimeUnit.SECONDS, new ArrayBlockingQueue<Runnable>(65536));
 
     private final Processor processor;
 
 
-    public RpcHandler(Processor processor) {
+    public DefaultRpcHandler(Processor processor) {
         this.processor = processor;
     }
     protected void channelRead0(final ChannelHandlerContext ctx, final RpcRequest request) throws Exception {

@@ -1,8 +1,6 @@
 package com.u002.mantis.transport.internal;
 
 import com.u002.mantis.MessageCodec;
-import com.u002.mantis.config.api.ProviderConfig;
-import com.u002.mantis.provider.internal.ServiceProcessor;
 import com.u002.mantis.transport.Server;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
@@ -12,9 +10,6 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.HashMap;
-import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 public class RpcServer  implements Server {
@@ -23,31 +18,25 @@ public class RpcServer  implements Server {
 
     private final String serverAddress;
 
-    /**
-     * 服务暴漏用的，不应该放在这个地方
-     */
-    public volatile Map<String, Object> handleMap = new HashMap<>();
-
     EventLoopGroup bossGroup = new NioEventLoopGroup();
     EventLoopGroup workerGroup = new NioEventLoopGroup();
-
 
     /**
      * 编解码器
      */
     protected final MessageCodec codec;
 
-    public RpcServer(String serverAddress,MessageCodec messageCodec) throws Exception {
+    private final ChannelHandler channelHandler;
+
+    public RpcServer(String serverAddress,MessageCodec messageCodec,ChannelHandler channelHandler) throws Exception {
         this.serverAddress = serverAddress;
         this.codec=messageCodec;
+        this.channelHandler=channelHandler;
         this.startServer();
     }
 
 
-    @Override
-    public void registerProcessor(ProviderConfig providerConfig) {
-        handleMap.put(providerConfig.getInterface(), providerConfig.getRef());
-    }
+
 
     private void startServer() throws Exception {
         ServerBootstrap bootstrap = new ServerBootstrap();
@@ -59,7 +48,7 @@ public class RpcServer  implements Server {
                                 .addLast(new LengthFieldBasedFrameDecoder(65536, 0, 4, 0, 0))
                                 .addLast(codec.newDecoder())
                                 .addLast(codec.newEncoder())
-                                .addLast(new RpcHandler(new ServiceProcessor(handleMap)));
+                                .addLast(channelHandler);
                     }
                 })
                 .option(ChannelOption.SO_BACKLOG, 128)
@@ -95,7 +84,6 @@ public class RpcServer  implements Server {
         workerGroup.shutdownGracefully();
         bossGroup.shutdownGracefully();
     }
-
 
 
 }

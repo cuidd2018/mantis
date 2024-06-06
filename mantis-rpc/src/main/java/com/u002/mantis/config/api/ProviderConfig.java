@@ -1,9 +1,8 @@
 package com.u002.mantis.config.api;
 
-import com.u002.mantis.transport.Server;
+import com.u002.mantis.provider.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import java.util.List;
 
 public class ProviderConfig extends AbstractInterfaceConfig {
@@ -39,8 +38,8 @@ public class ProviderConfig extends AbstractInterfaceConfig {
                 try {
                     serverConfig.start();
                     // 注册接口
-                    Server server = serverConfig.getServer();
-                    server.registerProcessor(this);
+                    Processor processor = serverConfig.getProcessor();
+                    processor.registerProcessor(this);
                 } catch (Exception e) {
                     logger.error("Catch exception server.", e);
                 }

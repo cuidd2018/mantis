@@ -2,21 +2,23 @@ package com.u002.mantis.provider.internal;
 
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
+import com.u002.mantis.config.api.ProviderConfig;
 import com.u002.mantis.provider.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.Map;
 
 public class ServiceProcessor implements Processor {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(ServiceProcessor.class);
 
-    private final Map<String, Object> handlerMap;
+    private final Map<String, Object> handlerMap=new HashMap<>();
 
-    public ServiceProcessor(Map<String, Object> handlerMap) {
-        this.handlerMap = handlerMap;
+
+    public ServiceProcessor() {
     }
 
     @Override
@@ -32,6 +34,11 @@ public class ServiceProcessor implements Processor {
             LOGGER.error("RPC Server handle request error", t);
         }
         return response;
+    }
+
+    @Override
+    public void registerProcessor(ProviderConfig providerConfig) {
+        handlerMap.put(providerConfig.getInterface(), providerConfig.getRef());
     }
 
     private Object handle(RpcRequest request) throws Throwable {

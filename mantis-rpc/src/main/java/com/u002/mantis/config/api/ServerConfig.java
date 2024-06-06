@@ -1,7 +1,10 @@
 package com.u002.mantis.config.api;
 
+import com.u002.mantis.provider.Processor;
+import com.u002.mantis.provider.internal.ServiceProcessor;
 import com.u002.mantis.transport.Server;
 import com.u002.mantis.transport.codec.DefaultCodec;
+import com.u002.mantis.transport.internal.DefaultRpcHandler;
 import com.u002.mantis.transport.internal.RpcServer;
 import com.u002.serialize.protostuff.ProtostuffSerialization;
 
@@ -22,9 +25,13 @@ public class ServerConfig extends AbstractInterfaceConfig {
      */
     private volatile transient Server server = null;
 
+
+    private Processor processor;
+
     public void start() throws Exception {
         if (server == null) {
-            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()));
+            processor= new ServiceProcessor();
+            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()),new DefaultRpcHandler(processor));
         }
     }
 
@@ -43,5 +50,9 @@ public class ServerConfig extends AbstractInterfaceConfig {
 
     public void setPort(int port) {
         this.port = port;
+    }
+
+    public Processor getProcessor() {
+        return processor;
     }
 }
