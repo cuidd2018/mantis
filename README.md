@@ -9,3 +9,6 @@ Mantis is a remote procedure call(RPC) framework for rapid development of high p
 - Create distributed services without writing extra code.
 
 - Provides cluster support and integrate with popular service discovery services like [Consul] or [Zookeeper].
+
+#changes
+- 0.0.1 initial version 实现基本rpc功能。
