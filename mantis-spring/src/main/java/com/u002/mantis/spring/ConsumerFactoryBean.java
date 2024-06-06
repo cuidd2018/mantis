@@ -1,4 +1,4 @@
-package com.u002.mantis.config.spring;
+package com.u002.mantis.spring;
 
 import com.u002.mantis.config.api.ConsumerConfig;
 import org.springframework.beans.factory.FactoryBean;

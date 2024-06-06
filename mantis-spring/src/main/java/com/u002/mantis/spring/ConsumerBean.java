@@ -1,7 +1,5 @@
-package com.u002.mantis.config.spring;
+package com.u002.mantis.spring;
 
-import com.u002.mantis.config.api.ProviderConfig;
-import com.u002.mantis.config.api.ServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -10,18 +8,13 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
-import org.springframework.util.CollectionUtils;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-
-public class ProviderBean extends ProviderConfig implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware {
+public class ConsumerBean extends ConsumerFactoryBean implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware {
 
     /**
      * slf4j logger for this class
      */
-    private final Logger logger = LoggerFactory.getLogger(ProviderBean.class);
+    private Logger logger = LoggerFactory.getLogger(ConsumerBean.class);
 
     protected transient ApplicationContext applicationContext = null;
     private transient String beanName = null;
@@ -45,33 +38,13 @@ public class ProviderBean extends ProviderConfig implements InitializingBean, Di
         this.applicationContext = applicationContext;
     }
 
-    /**
-     * Using implements InitializingBean
-     */
     @Override
     public void afterPropertiesSet() throws Exception {
-        propertiesInit();
-        export();
-    }
-
-    /*
-   * 组装相应的ServiceConfig
-   */
-    private void propertiesInit() {
-        if (applicationContext != null) {
-            if (getServerConfigs() == null) {
-                Map<String, ServerConfig> protocolMaps = applicationContext.getBeansOfType(ServerConfig.class, false, false);
-                if (!CollectionUtils.isEmpty(protocolMaps)) {
-                    List<ServerConfig> protocolLists = new ArrayList(protocolMaps.values());
-                    setServerConfigs(protocolLists);
-                }
-            }
-        }
     }
 
     @Override
     public void destroy() throws Exception {
-        logger.info("mantis rpc destroy provider with beanName {}", beanName);
-        // todo unexport
+        logger.info("easy rpc destroy consumer with beanName {}", beanName);
     }
+
 }

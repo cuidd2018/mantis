@@ -1,4 +1,4 @@
-package com.u002.mantis.config.spring;
+package com.u002.mantis.spring;
 
 import com.u002.mantis.config.api.ServerConfig;
 import org.slf4j.Logger;

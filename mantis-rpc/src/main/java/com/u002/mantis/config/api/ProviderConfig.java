@@ -1,16 +1,23 @@
 package com.u002.mantis.config.api;
 
+import com.u002.mantis.Config;
+import com.u002.mantis.MantisBootstrap;
 import com.u002.mantis.provider.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.CollectionUtils;
+
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
-public class ProviderConfig extends AbstractInterfaceConfig {
+public class ProviderConfig extends AbstractInterfaceConfig implements Config {
 
     /**
      * slf4j logger for this class
      */
     private final Logger logger = LoggerFactory.getLogger(ProviderConfig.class);
+
 
     /**
      * 接口实现类引用
@@ -84,4 +91,21 @@ public class ProviderConfig extends AbstractInterfaceConfig {
         this.serverConfigs = serverConfigs;
     }
 
+    @Override
+    public void start() throws Exception {
+        export();
+    }
+
+    @Override
+    public void init() {
+        //如果是空值，从容器工厂里边获取一次
+        if (getServerConfigs() == null) {
+            Collection<ServerConfig> protocolMaps = MantisBootstrap.newInstance().getContainer().findBeans(ServerConfig.class);
+            if (!CollectionUtils.isEmpty(protocolMaps)) {
+                List<ServerConfig> protocolLists = new ArrayList<>(protocolMaps);
+                setServerConfigs(protocolLists);
+            }
+        }
+
+    }
 }

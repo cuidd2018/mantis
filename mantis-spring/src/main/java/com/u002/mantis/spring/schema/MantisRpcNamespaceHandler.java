@@ -1,8 +1,8 @@
-package com.u002.mantis.config.spring.schema;
+package com.u002.mantis.spring.schema;
 
-import com.u002.mantis.config.spring.ConsumerBean;
-import com.u002.mantis.config.spring.ProviderBean;
-import com.u002.mantis.config.spring.ServerBean;
+import com.u002.mantis.spring.ConsumerBean;
+import com.u002.mantis.spring.ProviderBean;
+import com.u002.mantis.spring.ServerBean;
 import org.springframework.beans.factory.xml.NamespaceHandlerSupport;
 
 /**

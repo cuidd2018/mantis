@@ -1,4 +1,4 @@
-package com.u002.mantis.config.spring.schema;
+package com.u002.mantis.spring.schema;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.config.BeanDefinition;

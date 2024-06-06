@@ -1,5 +1,7 @@
-package com.u002.mantis.config.spring;
+package com.u002.mantis.spring;
 
+import com.u002.mantis.Container;
+import com.u002.mantis.MantisBootstrap;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -8,13 +10,19 @@ import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.util.CollectionUtils;
 
-public class ConsumerBean extends ConsumerFactoryBean implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware {
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+import java.util.Map;
+
+public class ProviderBean  implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware, Container {
 
     /**
      * slf4j logger for this class
      */
-    private Logger logger = LoggerFactory.getLogger(ConsumerBean.class);
+    private final Logger logger = LoggerFactory.getLogger(ProviderBean.class);
 
     protected transient ApplicationContext applicationContext = null;
     private transient String beanName = null;
@@ -38,13 +46,32 @@ public class ConsumerBean extends ConsumerFactoryBean implements InitializingBea
         this.applicationContext = applicationContext;
     }
 
+    /**
+     * Using implements InitializingBean
+     */
     @Override
     public void afterPropertiesSet() throws Exception {
+        propertiesInit();
+        MantisBootstrap.newInstance().getProviderConfig().start();
+    }
+
+    /*
+   * 组装相应的ServiceConfig
+   */
+    private void propertiesInit() {
+        if (applicationContext != null) {
+            MantisBootstrap.newInstance().getProviderConfig().init();
+        }
     }
 
     @Override
     public void destroy() throws Exception {
-        logger.info("easy rpc destroy consumer with beanName {}", beanName);
+        logger.info("mantis rpc destroy provider with beanName {}", beanName);
+        // todo unexport
     }
 
+    @Override
+    public <T> Collection<T> findBeans(Class<T> clazz) {
+        return applicationContext.getBeansOfType(clazz,false,false).values();
+    }
 }
