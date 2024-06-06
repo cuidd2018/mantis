@@ -1,15 +1,9 @@
 package com.u002.mantis.transport.internal;
 
-
-import com.u002.basic.serialize.Serializer;
 import com.u002.mantis.MessageCodec;
-import com.u002.mantis.RpcRequest;
-import com.u002.mantis.RpcResponse;
 import com.u002.mantis.config.api.ProviderConfig;
 import com.u002.mantis.provider.internal.ServiceProcessor;
 import com.u002.mantis.transport.Server;
-import com.u002.mantis.transport.codec.RpcDecoder;
-import com.u002.mantis.transport.codec.RpcEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -41,10 +35,11 @@ public class RpcServer  implements Server {
     /**
      * 编解码器
      */
-    protected MessageCodec codec;
+    protected final MessageCodec codec;
 
-    public RpcServer(String serverAddress) throws Exception {
+    public RpcServer(String serverAddress,MessageCodec messageCodec) throws Exception {
         this.serverAddress = serverAddress;
+        this.codec=messageCodec;
         this.startServer();
     }
 
@@ -102,21 +97,5 @@ public class RpcServer  implements Server {
     }
 
 
-    private static class DefaultCodec implements MessageCodec {
-        private final Serializer serializer;
 
-        public DefaultCodec(Serializer serializer) {
-            this.serializer = serializer;
-        }
-
-        @Override
-        public ChannelHandler newEncoder() {
-            return new RpcEncoder(RpcResponse.class, serializer);
-        }
-
-        @Override
-        public ChannelHandler newDecoder() {
-            return new RpcDecoder(RpcRequest.class, serializer);
-        }
-    }
 }
