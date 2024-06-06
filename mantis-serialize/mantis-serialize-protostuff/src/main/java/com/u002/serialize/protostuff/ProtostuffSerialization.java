@@ -1,9 +1,10 @@
-package com.u002.mantis;
+package com.u002.serialize.protostuff;
 
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.Schema;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
+import com.u002.basic.serialize.Serializer;
 import org.objenesis.Objenesis;
 import org.objenesis.ObjenesisStd;
 
@@ -49,14 +50,13 @@ public class ProtostuffSerialization implements Serializer {
     @Override
     public <T> byte[] serialize(T data) throws IOException {
         Class<T> cls = (Class<T>) data.getClass();
-        LinkedBuffer buffer = LinkedBuffer.allocate(LinkedBuffer.DEFAULT_BUFFER_SIZE);
         try {
             Schema<T> schema = getSchema(cls);
-            return ProtostuffIOUtil.toByteArray(data, schema, buffer);
+            return ProtostuffIOUtil.toByteArray(data, schema, BUFFER);
         } catch (Exception e) {
             throw new IllegalStateException(e.getMessage(), e);
         } finally {
-            buffer.clear();
+           // BUFFER.clear();
         }
     }
 

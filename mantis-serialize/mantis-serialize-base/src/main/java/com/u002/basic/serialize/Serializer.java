@@ -1,4 +1,4 @@
-package com.u002.mantis;
+package com.u002.basic.serialize;
 
 
 import java.io.IOException;

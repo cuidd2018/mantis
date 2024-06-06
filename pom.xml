@@ -23,6 +23,7 @@
         <module>mantis-transport</module>
         <module>mantis-proxy</module>
         <module>mantis-rpc</module>
+        <module>mantis-serialize</module>
     </modules>
 
     <dependencyManagement>

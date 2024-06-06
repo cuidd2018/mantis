@@ -1,7 +1,7 @@
 package com.u002.mantis.transport.codec;
 
 
-import com.u002.mantis.Serializer;
+import com.u002.basic.serialize.Serializer;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;

@@ -1,11 +1,12 @@
 package com.u002.mantis.client;
 
-import com.u002.mantis.ProtostuffSerialization;
+
+import com.u002.basic.serialize.Serializer;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
-import com.u002.mantis.Serializer;
 import com.u002.mantis.transport.codec.RpcDecoder;
 import com.u002.mantis.transport.codec.RpcEncoder;
+import com.u002.serialize.protostuff.ProtostuffSerialization;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelPipeline;
 import io.netty.channel.socket.SocketChannel;

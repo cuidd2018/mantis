@@ -1,10 +1,10 @@
 package com.u002.mantis.transport.internal;
 
 
+import com.u002.basic.serialize.Serializer;
 import com.u002.mantis.MessageCodec;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
-import com.u002.mantis.Serializer;
 import com.u002.mantis.config.api.ProviderConfig;
 import com.u002.mantis.provider.internal.ServiceProcessor;
 import com.u002.mantis.transport.Server;
