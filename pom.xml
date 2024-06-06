@@ -21,6 +21,7 @@
         <module>mantis-dependencies-bom</module>
         <module>mantis-core</module>
         <module>mantis-rpc</module>
+        <module>mantis-transport</module>
     </modules>
 
     <dependencyManagement>
