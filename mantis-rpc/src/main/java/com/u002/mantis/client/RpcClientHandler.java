@@ -16,6 +16,9 @@ import java.net.SocketAddress;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 客户端默认处理过程。
+ */
 public class RpcClientHandler extends SimpleChannelInboundHandler<RpcResponse> implements Connection {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RpcClientHandler.class);
