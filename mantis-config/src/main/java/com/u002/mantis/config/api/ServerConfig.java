@@ -2,6 +2,7 @@ package com.u002.mantis.config.api;
 
 import com.u002.basic.Server;
 import com.u002.basic.proxy.transport.RpcServer;
+import com.u002.core.extension.ExtensionLoader;
 import com.u002.mantis.provider.Processor;
 import com.u002.mantis.provider.internal.ServiceProcessor;
 import com.u002.basic.codec.DefaultCodec;
@@ -33,8 +34,9 @@ public class ServerConfig extends AbstractInterfaceConfig {
 
     public void start() throws Exception {
         if (server == null) {
-            processor= new ServiceProcessor();
-            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()),new DefaultRpcHandler(processor));
+            //不用spi机制的话，就只能自己实例化，或者用工厂模式，后者后期注入，后期注入比较费事。
+//            processor= ExtensionLoader.getExtensionLoader(Processor.class).getExtension("processor");// new ServiceProcessor();
+//            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()),new DefaultRpcHandler(processor));
         }
     }
 
