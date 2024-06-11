@@ -2,6 +2,7 @@ package com.u002.mantis.config.api;
 
 import com.u002.mantis.Config;
 import com.u002.mantis.MantisBootstrap;
+import com.u002.mantis.Remote;
 import com.u002.mantis.provider.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class ProviderConfig extends AbstractInterfaceConfig implements Config {
+public class ProviderConfig extends AbstractInterfaceConfig implements Config, Remote {
 
     /**
      * slf4j logger for this class

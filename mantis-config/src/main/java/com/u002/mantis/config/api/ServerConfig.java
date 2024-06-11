@@ -26,6 +26,9 @@ public class ServerConfig extends AbstractInterfaceConfig {
     private volatile transient Server server = null;
 
 
+    /**
+     * 处理过程对象。
+     */
     private Processor processor;
 
     public void start() throws Exception {

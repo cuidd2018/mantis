@@ -1,5 +1,6 @@
 package com.u002.mantis.provider.internal;
 
+import com.u002.mantis.Remote;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
 import com.u002.mantis.config.api.ProviderConfig;
@@ -37,8 +38,8 @@ public class ServiceProcessor implements Processor {
     }
 
     @Override
-    public void registerProcessor(ProviderConfig providerConfig) {
-        handlerMap.put(providerConfig.getInterface(), providerConfig.getRef());
+    public void registerProcessor(Remote remote) {
+        handlerMap.put(remote.getInterface(), remote.getRef());
     }
 
     private Object handle(RpcRequest request) throws Throwable {

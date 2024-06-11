@@ -1,23 +1,25 @@
 package com.u002.mantis.spring;
 
-import com.u002.mantis.config.api.ConsumerConfig;
+import com.u002.mantis.ConsumerBeanFactory;
 import org.springframework.beans.factory.FactoryBean;
 
-public class ConsumerFactoryBean<T> extends ConsumerConfig<T> implements FactoryBean<T> {
+public class ConsumerFactoryBean<T> implements FactoryBean<T> {
 
     private transient T bean = null;
     private transient Class<?> objectType = null;
 
+    private ConsumerBeanFactory<T> consumerBeanFactory = null;
+
     @Override
     public T getObject() throws Exception {
-        bean = refer();
+        bean = consumerBeanFactory.refer();
         return bean;
     }
 
     @Override
     public Class<?> getObjectType() {
         try {
-            objectType = getProxyClass();
+            objectType = consumerBeanFactory.getProxyClass();
         } catch (Exception e) {
             objectType = null;
         }

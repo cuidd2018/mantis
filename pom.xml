@@ -26,6 +26,7 @@
         <module>mantis-serialize</module>
         <module>mantis-common</module>
         <module>mantis-spring</module>
+        <module>mantis-config</module>
     </modules>
 
     <dependencyManagement>

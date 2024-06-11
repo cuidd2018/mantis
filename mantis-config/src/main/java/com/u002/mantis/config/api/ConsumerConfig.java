@@ -1,9 +1,10 @@
 package com.u002.mantis.config.api;
 
-import com.u002.mantis.client.RpcClient;
+import com.u002.mantis.Client;
+import com.u002.mantis.ConsumerBeanFactory;
 import org.apache.commons.lang3.StringUtils;
 
-public class ConsumerConfig<T> extends AbstractInterfaceConfig {
+public class ConsumerConfig<T> extends AbstractInterfaceConfig implements ConsumerBeanFactory<T> {
 
     /**
      * 直连调用地址
@@ -20,7 +21,7 @@ public class ConsumerConfig<T> extends AbstractInterfaceConfig {
      */
     private volatile transient T proxyIns = null;
 
-    protected T refer() {
+    public T refer() {
         //返回代理类
         if (proxyIns != null)
             return proxyIns;
@@ -33,11 +34,14 @@ public class ConsumerConfig<T> extends AbstractInterfaceConfig {
         return proxyIns;
     }
 
+    /**
+     * 初始化连接没有实现。
+     */
     private void initConnections() {
-        RpcClient client = (RpcClient) proxyIns;
+        Client client = (Client) proxyIns;
     }
 
-    protected Class<?> getProxyClass() {
+    public Class<?> getProxyClass() {
         if (proxyClass != null) {
             return proxyClass;
         }

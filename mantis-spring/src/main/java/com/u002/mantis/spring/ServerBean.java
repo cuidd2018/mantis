@@ -12,7 +12,7 @@ public class ServerBean extends ServerConfig implements InitializingBean, Dispos
     /**
      * slf4j logger for this class
      */
-    private Logger logger = LoggerFactory.getLogger(ServerBean.class);
+    private final Logger logger = LoggerFactory.getLogger(ServerBean.class);
 
     private transient String beanName = null;
 

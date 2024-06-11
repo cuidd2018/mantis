@@ -7,6 +7,9 @@ package com.u002.mantis;
 public class MantisBootstrap {
 
 
+    /**
+     * 单例
+     */
     private static final MantisBootstrap instance = new MantisBootstrap();
 
     public static MantisBootstrap newInstance() {

@@ -9,7 +9,7 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>mantis-spring</artifactId>
+    <artifactId>mantis-config</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -17,21 +17,12 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 
-    <dependencies>
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
 
+    <dependencies>
         <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-lang3</artifactId>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-transport-base</artifactId>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
@@ -39,14 +30,15 @@
             <artifactId>mantis-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-
         <dependency>
-            <groupId>com.u002</groupId>
-            <artifactId>mantis-config</artifactId>
-            <version>${project.version}</version>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
 </project>
