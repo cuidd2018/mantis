@@ -46,6 +46,20 @@
             <artifactId>spring-core</artifactId>
             <scope>compile</scope>
         </dependency>
+        <!--待删除-->
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-transport-netty</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-rpc</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

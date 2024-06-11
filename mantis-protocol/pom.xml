@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>mantis-protocol-base</module>
+        <module>mantis-protocol-internal</module>
     </modules>
 
     <properties>
@@ -25,6 +26,13 @@
         <dependency>
             <groupId>com.u002</groupId>
             <artifactId>mantis-transport-base</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-core</artifactId>
             <version>${project.version}</version>
         </dependency>
 

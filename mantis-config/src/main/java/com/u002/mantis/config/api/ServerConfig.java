@@ -35,8 +35,9 @@ public class ServerConfig extends AbstractInterfaceConfig {
     public void start() throws Exception {
         if (server == null) {
             //不用spi机制的话，就只能自己实例化，或者用工厂模式，后者后期注入，后期注入比较费事。
-//            processor= ExtensionLoader.getExtensionLoader(Processor.class).getExtension("processor");// new ServiceProcessor();
-//            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()),new DefaultRpcHandler(processor));
+//            processor= ExtensionLoader.getExtensionLoader(Processor.class).getExtension("processor");
+            processor=new ServiceProcessor();
+            server = new RpcServer(host + ":" + port,new DefaultCodec(new ProtostuffSerialization()),new DefaultRpcHandler(processor));
         }
     }
 
