@@ -44,7 +44,7 @@ public class ConsumerBean extends ConsumerFactoryBean implements InitializingBea
 
     @Override
     public void destroy() throws Exception {
-        logger.info("easy rpc destroy consumer with beanName {}", beanName);
+        logger.info("mantis rpc destroy consumer with beanName {}", beanName);
     }
 
 }
