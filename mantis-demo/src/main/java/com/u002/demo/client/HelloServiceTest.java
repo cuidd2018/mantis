@@ -1,4 +1,4 @@
-package com.u002.mantis.test.client;
+package com.u002.demo.client;
 
 import com.u002.mantis.Client;
 import com.u002.mantis.RpcFuture;

@@ -1,4 +1,4 @@
-package com.u002.mantis.test;
+package com.u002.test;
 
 import com.u002.basic.Server;
 import com.u002.basic.proxy.transport.RpcServer;
