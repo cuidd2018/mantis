@@ -4,14 +4,14 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class DefaultLogService implements LogService {
-    private static Logger trace = LoggerFactory.getLogger("trace");
-    private static Logger debug = LoggerFactory.getLogger("debug");
-    private static Logger info = LoggerFactory.getLogger("info");
-    private static Logger warn = LoggerFactory.getLogger("warn");
-    private static Logger error = LoggerFactory.getLogger("error");
-    private static Logger access = LoggerFactory.getLogger("accessLog");
-    private static Logger serviceStats = LoggerFactory.getLogger("serviceStatsLog");
-    private static Logger profileLogger = LoggerFactory.getLogger("profile");
+    private static final Logger trace = LoggerFactory.getLogger("trace");
+    private static final Logger debug = LoggerFactory.getLogger("debug");
+    private static final Logger info = LoggerFactory.getLogger("info");
+    private static final Logger warn = LoggerFactory.getLogger("warn");
+    private static final Logger error = LoggerFactory.getLogger("error");
+    private static final Logger access = LoggerFactory.getLogger("accessLog");
+    private static final Logger serviceStats = LoggerFactory.getLogger("serviceStatsLog");
+    private static final Logger profileLogger = LoggerFactory.getLogger("profile");
 
 
     public void trace(String msg) {
