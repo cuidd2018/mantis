@@ -3,7 +3,6 @@ package com.u002.mantis.provider.internal;
 import com.u002.mantis.Remote;
 import com.u002.mantis.RpcRequest;
 import com.u002.mantis.RpcResponse;
-import com.u002.mantis.config.api.ProviderConfig;
 import com.u002.mantis.provider.Processor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package com.u002.test;
+package com.u002.test.server;
 
 import com.u002.basic.Server;
 import com.u002.basic.proxy.transport.RpcServer;

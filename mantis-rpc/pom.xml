@@ -24,11 +24,7 @@
             <scope>test</scope>
         </dependency>
 
-        <!-- SLF4J fixme This slf4j-log4j12.jar has problem -->
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
-        </dependency>
+
 
 
         <dependency>
@@ -36,16 +32,7 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
-        <!-- Spring -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- Netty -->
         <dependency>
             <groupId>io.netty</groupId>
@@ -99,12 +86,6 @@
         <dependency>
             <groupId>com.u002</groupId>
             <artifactId>mantis-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.u002</groupId>
-            <artifactId>mantis-spring</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

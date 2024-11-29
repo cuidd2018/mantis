@@ -1,5 +1,7 @@
-package com.u002.demo.client;
+package com.u002.test.client;
 
+import com.u002.demo.HelloService;
+import com.u002.demo.Person;
 import com.u002.mantis.Client;
 import com.u002.mantis.RpcFuture;
 import com.u002.mantis.proxy.IAsyncObjectProxy;

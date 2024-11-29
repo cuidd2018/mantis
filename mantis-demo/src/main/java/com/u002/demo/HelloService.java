@@ -1,4 +1,4 @@
-package com.u002.demo.client;
+package com.u002.demo;
 
 public interface HelloService {
 

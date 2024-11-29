@@ -32,6 +32,30 @@
             <version>0.0.2</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.u002</groupId>
+            <artifactId>mantis-spring</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- Spring -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- SLF4J fixme This slf4j-log4j12.jar has problem -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

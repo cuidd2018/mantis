@@ -1,8 +1,8 @@
 package com.u002.demo.server;
 
 
-import com.u002.demo.client.HelloService;
-import com.u002.demo.client.Person;
+import com.u002.demo.HelloService;
+import com.u002.demo.Person;
 
 public class HelloServiceImpl implements HelloService {
 
