@@ -5,7 +5,7 @@ import com.u002.core.log.DefaultLogService;
 import com.u002.core.log.LogService;
 
 /**
- * 
+ *  日志工具
  * @author amber
  * 
  */
@@ -100,6 +100,10 @@ public class LoggerUtil {
         logService.accessProfileLog(format, argArray);
     }
 
+    /**
+     * 返回日志服务
+     * @return 日志服务
+     */
     public static LogService getLogService() {
         return logService;
     }

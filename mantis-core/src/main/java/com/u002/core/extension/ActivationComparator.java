@@ -5,10 +5,7 @@ import java.util.Comparator;
 /**
  * Priority comparator
  *
- * @author fishermen
- * @version V1.0 created at: 2013-5-30
  */
-
 public class ActivationComparator<T> implements Comparator<T> {
 
     /**

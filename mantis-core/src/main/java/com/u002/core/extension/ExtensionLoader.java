@@ -19,8 +19,6 @@ import java.util.concurrent.ConcurrentMap;
  * <pre>
  * 	扩展增加的方式：
  * 		支持 JDK ServiceProvider
- *
- * 		支持 weibo:spi 配置
  * </pre>
  *
  * @author amber

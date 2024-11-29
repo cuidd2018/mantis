@@ -1,10 +1,10 @@
 package com.u002.core.log;
 
 /**
- * 
+ * 日志服务
+ *
  * @Description rpc log服务。方便适配不同的log方式和配置。
  * @date 2016年3月25日
- *
  */
 public interface LogService {
 
@@ -47,7 +47,7 @@ public interface LogService {
     boolean isTraceEnabled();
 
     boolean isDebugEnabled();
-    
+
     boolean isInfoEnabled();
 
     boolean isWarnEnabled();
