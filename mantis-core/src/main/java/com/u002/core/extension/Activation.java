@@ -5,10 +5,7 @@ import java.lang.annotation.*;
 /**
  * Spi有多个实现时，可以根据条件进行过滤、排序后再返回。
  *
- * @author fishermen
- * @version V1.0 created at: 2013-5-30
  */
-
 @Documented
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.TYPE)

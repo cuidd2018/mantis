@@ -117,5 +117,4 @@ public class DefaultLogService implements LogService {
         return serviceStats.isInfoEnabled();
     }
 
-    
 }

@@ -16,8 +16,8 @@ public class RpcContext {
         protected RpcContext initialValue() {return new RpcContext();
         }
     };
-    private Map<Object, Object> attributes = new HashMap<Object, Object>();
-    private Map<String, String> attachments = new HashMap<String, String>();// attachment in rpc context. not same with request's attachments
+    private final Map<Object, Object> attributes = new HashMap<Object, Object>();
+    private final Map<String, String> attachments = new HashMap<String, String>();// attachment in rpc context. not same with request's attachments
     private Request request;
     private Response response;
     private String clientRequestId = null;
@@ -29,8 +29,8 @@ public class RpcContext {
     /**
      * init new rpcContext with request
      *
-     * @param request
-     * @return
+     * @param request 请求对象
+     * @return 上下文信息
      */
     public static RpcContext init(Request request) {
         RpcContext context = new RpcContext();
@@ -42,12 +42,20 @@ public class RpcContext {
         return context;
     }
 
+
+    /**
+     * 初始化
+     * @return 上下文信息
+     */
     public static RpcContext init() {
         RpcContext context = new RpcContext();
         LOCAL_CONTEXT.set(context);
         return context;
     }
 
+    /**
+     * 销毁
+     */
     public static void destroy() {
         LOCAL_CONTEXT.remove();
     }
@@ -55,7 +63,7 @@ public class RpcContext {
     /**
      * clientRequestId > request.id
      *
-     * @return
+     * @return 生成请求ID
      */
     public String getRequestId() {
         if (clientRequestId != null) {
