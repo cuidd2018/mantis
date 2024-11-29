@@ -7,9 +7,9 @@
            http://www.u002.com/schema/mantis
            http://www.u002.com/schema/mantis/mantis.xsd">
 
-    <bean id="helloService" class="com.u002.mantis.test.server.HelloServiceImpl"/>
+    <bean id="helloService" class="com.u002.demo.server.HelloServiceImpl"/>
 
-    <mantis:provider id="HelloProvider" interface="com.u002.mantis.com.u002.mantis.test.client.HelloService"
+    <mantis:provider id="HelloProvider" interface="com.u002.mantis.com.u002.demo.HelloService"
                       alias="1.0" ref="helloService"/>
 
     <mantis:server id="rpcServer" protocol="easyrpc" port="18868"/>

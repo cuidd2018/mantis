@@ -1,4 +1,4 @@
-package com.u002.mantis.test.server;
+package com.u002.test.server;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

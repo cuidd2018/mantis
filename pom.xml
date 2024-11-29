@@ -28,6 +28,7 @@
         <module>mantis-spring</module>
         <module>mantis-config</module>
         <module>mantis-protocol</module>
+        <module>mantis-demo</module>
     </modules>
 
     <dependencyManagement>

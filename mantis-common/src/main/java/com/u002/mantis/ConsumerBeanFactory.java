@@ -4,6 +4,5 @@ public interface ConsumerBeanFactory<T> {
 
      T refer();
 
-
      Class<?> getProxyClass();
 }

@@ -2,6 +2,8 @@ package com.u002.mantis.spring;
 
 import com.u002.mantis.Container;
 import com.u002.mantis.MantisBootstrap;
+import com.u002.mantis.config.api.ProviderConfig;
+import com.u002.mantis.config.api.ServerConfig;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeansException;
@@ -17,7 +19,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
-public class ProviderBean  implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware, Container {
+public class ProviderBean extends ProviderConfig implements InitializingBean, DisposableBean, ApplicationContextAware, BeanNameAware, Container {
 
     /**
      * slf4j logger for this class
@@ -52,15 +54,23 @@ public class ProviderBean  implements InitializingBean, DisposableBean, Applicat
     @Override
     public void afterPropertiesSet() throws Exception {
         propertiesInit();
-        MantisBootstrap.newInstance().getProviderConfig().start();
+        //MantisBootstrap.newInstance().getProviderConfig().start();
+        export();
     }
 
-    /*
-   * 组装相应的ServiceConfig
-   */
+    /**
+     * 组装相应的ServiceConfig
+     */
     private void propertiesInit() {
         if (applicationContext != null) {
-            MantisBootstrap.newInstance().getProviderConfig().init();
+            //MantisBootstrap.newInstance().getProviderConfig().init();
+            if (getServerConfigs() == null) {
+                Map<String, ServerConfig> protocolMaps = applicationContext.getBeansOfType(ServerConfig.class, false, false);
+                if (!CollectionUtils.isEmpty(protocolMaps)) {
+                    List<ServerConfig> protocolLists = new ArrayList<>(protocolMaps.values());
+                    setServerConfigs(protocolLists);
+                }
+            }
         }
     }
 
@@ -72,6 +82,6 @@ public class ProviderBean  implements InitializingBean, DisposableBean, Applicat
 
     @Override
     public <T> Collection<T> findBeans(Class<T> clazz) {
-        return applicationContext.getBeansOfType(clazz,false,false).values();
+        return applicationContext.getBeansOfType(clazz, false, false).values();
     }
 }

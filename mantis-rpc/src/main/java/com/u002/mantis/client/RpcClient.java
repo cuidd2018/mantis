@@ -8,7 +8,6 @@ import com.u002.mantis.proxy.ObjectProxyHandler;
 import com.u002.mantis.remote.ConnectManager;
 import com.u002.mantis.remote.RemoteCall;
 import com.u002.proxy.internal.InternalProxy;
-
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 

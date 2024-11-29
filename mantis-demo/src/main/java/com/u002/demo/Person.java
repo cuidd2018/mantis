@@ -1,4 +1,4 @@
-package com.u002.mantis.test.client;
+package com.u002.demo;
 
 public class Person {
 

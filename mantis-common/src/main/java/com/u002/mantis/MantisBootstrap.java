@@ -18,6 +18,12 @@ public class MantisBootstrap {
 
     private Config providerConfig;
 
+    private MantisBootstrap(){
+       // providerConfig=new ProviderConfig();
+    }
+
+
+
     public Container container;
 
     public Container getContainer() {
